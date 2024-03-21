@@ -1,17 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>Made by Temur KHOSHIMOV</h1>
+  <MyCalendar :init-date=initDate v-on:chosen-date="calendarResult"></MyCalendar>
+  <br>
+  {{ calendarResponse }}
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { ref } from 'vue';
+import MyCalendar from './components/MyCalendar.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+const initDate = ref("2024-01-31")
+const calendarResponse = ref()
+
+const calendarResult = (val)=>{
+  calendarResponse.value = val
 }
+
 </script>
 
 <style>
